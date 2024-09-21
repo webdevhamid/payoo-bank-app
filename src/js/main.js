@@ -1,3 +1,4 @@
+"use strict";
 // Elements
 const inputAddAmount = document.querySelector("#input-add-amount");
 const inputAddPin = document.querySelector("#input-add-pin");
