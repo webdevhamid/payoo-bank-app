@@ -78,6 +78,8 @@ const handleCashOut = function (e) {
       updateBalance(accountBalance);
 
       handleTransaction("Withdrawal Amount", cashOutValue, currentBalance);
+    } else if (currentBalance === 0) {
+      alert("Oops, you have 0 balance! Add new amount for cash out!");
     } else {
       alert("Cashout amount must be less than the account balance!");
     }
