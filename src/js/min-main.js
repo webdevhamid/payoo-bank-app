@@ -22,7 +22,7 @@ const accountBalanceArea = document.querySelector("#account-balance-area");
 const pin = 1111;
 
 let currentBalance = 8500;
-// accountBalance.textContent = currentBalance;
+
 () => {
   updateBalance(accountBalance);
 };
@@ -30,31 +30,21 @@ let currentBalance = 8500;
 const handleAddMoney = function (e) {
   e.preventDefault();
 
-  //   const amountValue = +inputAddAmount.value;
-  //   const pinValue = +inputAddPin.value;
-
   const amountValue = getInputFieldValue(inputAddAmount);
   const pinValue = getInputFieldValue(inputAddPin);
 
   console.log(amountValue, pinValue);
 
-  // Safe guard
   if (!pinValue) return;
 
   if (pinValue === pin) {
     currentBalance += amountValue;
     updateBalance(accountBalance);
-
-    handleTransaction("Add Amount", amountValue, currentBalance);
   } else {
     alert("Something went wrong!");
   }
 
-  // console.log(document.querySelector("#transaction-history table tbody"));
-
   clearInputField(inputAddAmount, inputAddPin);
-  //   inputAddAmount.value = "";
-  //   inputAddPin.value = "";
 };
 
 const handleCashOut = function (e) {
@@ -62,25 +52,18 @@ const handleCashOut = function (e) {
 
   inputCashOutAmount.focus();
 
-  //   const cashOutValue = +inputCashOutAmount.value;
-  //   const pinValue = +inputCashOutPin.value;
-
   const cashOutValue = getInputFieldValue(inputCashOutAmount);
   const pinValue = getInputFieldValue(inputCashOutPin);
 
-  // Safe guard
   if (!pinValue) return;
 
   if (pinValue === pin) {
     currentBalance -= cashOutValue;
     updateBalance(accountBalance);
-
-    handleTransaction("Withdrawal Amount", cashOutValue, currentBalance);
   } else {
     alert("Something went wrong!");
   }
 
-  // Clear input field
   clearInputField(inputCashOutAmount, inputCashOutPin);
 };
 
@@ -88,30 +71,17 @@ btnAddMoney.addEventListener("click", handleAddMoney);
 btnCashOut.addEventListener("click", handleCashOut);
 
 const handlerAddMoneyForm = function () {
-  //   addMoneyForm.classList.remove("hidden");
-  //   cashOutForm.classList.add("hidden");
-
   toggleForm(addMoneyForm, cashOutForm, transaction);
-
-  //   btnAddMoneyTop.classList.remove("btn-outline");
-  //   btnCashOutTop.classList.add("btn-outline");
-
   toggleButtonActive(btnAddMoneyTop, btnCashOutTop, btnTransactionTop);
 };
 
 const handlerCashOutForm = function () {
-  //   addMoneyForm.classList.add("hidden");
-  //   cashOutForm.classList.remove("hidden");
   toggleForm(cashOutForm, addMoneyForm, transaction);
-
-  //   btnCashOutTop.classList.remove("btn-outline");
-  //   btnAddMoneyTop.classList.add("btn-outline");
   toggleButtonActive(btnCashOutTop, btnAddMoneyTop, btnTransactionTop);
 };
 
 const handlerTransactions = function () {
   toggleForm(transaction, addMoneyForm, cashOutForm);
-
   toggleButtonActive(btnTransactionTop, btnAddMoneyTop, btnCashOutTop);
 };
 

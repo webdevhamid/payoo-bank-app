@@ -25,6 +25,9 @@
               <button class="btn btn-outline btn-primary" id="btn-cashout-top">
                 Cashout Money
               </button>
+              <button class="btn btn-outline btn-primary" id="btn-transaction-top">
+                transactions
+              </button>
             </div>
             <!-- Divider  -->
             <div class="divider"></div>
@@ -101,10 +104,44 @@
               </form>
             </div>
             <!-- Cash out form end  -->
+            <!-- Transaction history start  -->
+            <div id="transaction-history" class="hidden">
+              <h1 class="text-center text-2xl">Transactions History</h1>
+              <div class="divider"></div>
+              <div class="overflow-x-auto">
+                <table class="table">
+                  <!-- head -->
+                  <thead>
+                    <tr>
+                      <th>Transaction Type</th>
+                      <th>Amount</th>
+                      <th>Available Balance</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- row 1 -->
+                    <!-- <tr>
+                      <td>Add Money</td>
+                      <td>500</td>
+                      <td>4500</td>
+                    </tr>
+                    <!-- row 2 -->
+                    <!-- <tr>
+                      <td>Add Money</td>
+                      <td>500</td>
+                      <td>4500</td>
+                    </tr>
+                     -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- Transaction history end  -->
           </div>
         </div>
       </div>
     </main>
     <script src="./js/main.js"></script>
+    <script src="./js/utilities.js"></script>
   </body>
 </html>
