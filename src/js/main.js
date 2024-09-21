@@ -48,7 +48,7 @@ const handleAddMoney = function (e) {
 
     handleTransaction("Add Amount", amountValue, currentBalance);
   } else {
-    alert("Something went wrong!");
+    alert("Invalid Pin!");
   }
 
   // console.log(document.querySelector("#transaction-history table tbody"));
@@ -73,12 +73,16 @@ const handleCashOut = function (e) {
   if (!pinValue) return;
 
   if (pinValue === pin) {
-    currentBalance -= cashOutValue;
-    updateBalance(accountBalance);
+    if (cashOutValue <= currentBalance) {
+      currentBalance -= cashOutValue;
+      updateBalance(accountBalance);
 
-    handleTransaction("Withdrawal Amount", cashOutValue, currentBalance);
+      handleTransaction("Withdrawal Amount", cashOutValue, currentBalance);
+    } else {
+      alert("Cashout amount must be less than the account balance!");
+    }
   } else {
-    alert("Something went wrong!");
+    alert("Invalid Pin");
   }
 
   // Clear input field
